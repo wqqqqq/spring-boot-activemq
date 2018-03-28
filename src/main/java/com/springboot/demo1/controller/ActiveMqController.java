@@ -31,4 +31,13 @@ public class ActiveMqController {
         }
         return "send bean successfully";
     }
+
+    @RequestMapping("/sendTopic")
+    public String sendTopic(){
+        for (int i = 0; i < 10; i++){
+            String msg = "topic message" + i;
+            producer.sendMsgTopic("test-topic", msg);
+        }
+        return "send topic successfully";
+    }
 }
